@@ -1,0 +1,5 @@
+#######################Prototype for Opine##################################
+
+Before work begins on the main project, I'm prototyping the concept by developing a small app that tracks bitcoin sentiment across 4chan, reddit, and several mainstream media outlets, assigns them a "weight", and then gives statistical likelihood of a rise or a fall in the price of BTC. 
+Then I will develop a graphing application that compares confidence to performance.
+The purpose of prototyping, in this case, is to track a single issue, before building in learning/neural mechanisms, which will spontaneously track issues. Prototyping will help me wrangle the barebones database design of the main project, Opine.
