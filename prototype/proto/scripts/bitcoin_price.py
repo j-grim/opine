@@ -4,45 +4,10 @@
 
 import json
 import urllib.request
-'''
-#Coindesk#
-
-
-url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
-hdr = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)' }
-req = urllib.request.Request(url, headers=hdr)
-
-readdata = urllib.request.urlopen(req)
-json_data = readdata.read()
-#print(json_data)
-
-json_dict = json.loads(json_data)
-
-current_utc_time = json_dict['time']['updated']
-current_us_price = json_dict['bpi']['USD']['rate_float']
-
-print(current_utc_time)
-print(current_us_price)
-
-
-#Coinbase API
-
-url = "https://api.coinbase.com/v2/prices/spot?currency=USD"
-#https://developers.coinbase.com/docs/wallet/guides/price-data  <- API Doc
-#has a pip installable lib. Dependency undesirable, but better than cURL.
-
-#Bitstamp API
-#https://www.bitstamp.net/api/
-
-#Coinmarketcap API
-# https://coinmarketcap.com/api/
-# Will offer historical data
-
-#Cryptocompare API (Very robust, in terms of data)
 #https://www.cryptocompare.com/api/#-api-data-pricehistorical-
-'''
 
-class BTC_API:
+
+class BtcAPI:
 
     def __init__(self, url, api_id):
         self.url = url
@@ -55,28 +20,47 @@ class BTC_API:
         readdata = urllib.request.urlopen(req)
         json_data = readdata.read()
 
-        api_req(self, json_data)
         json_dict = json.loads(json_data)
+        print(json_dict)
 
-        # Refactor this hideousness...
-        if api_id = Coindesk:
+url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+api_id ="Coindesk"
 
-            current_utc_time = json_dict['time']['updated']
-            current_us_price = json_dict['bpi']['USD']['rate_float']
+get_price = BtcAPI(url, api_id)
+get_price.btc_api_call()
+
+
+'''
+class Coindesk:
             
-            return(current_utc_time)
-            return(current_us_price)
+    def __init__(self):
 
-        elif api_id = 'Coinbase':
+        self.current_utc_time = current_utc_time
+        self.current_us_price = current_us_price
+                
+    def pull_json(self, json_dict):
 
-        elif api_id = 'Bitstamp':
+        current_utc_time = json_dict['time']['updated']
+        current_us_price = json_dict['bpi']['USD']['rate_float']
+            
+        return(current_utc_time)
+        return(current_us_price)
 
-        elif api_id = 'CoinMarketCap':
 
-        elif api_id = 'CryptoCompare':
 
-        else:
-            print('API Retrieval Failed')
+
+
+
+class Coinbase:
+
+
+class Bitstamp:
+
+
+class CoinMarketCap:
+
+
+class CryptoCompare:
 
 
 api_url_dict = { 
@@ -88,5 +72,5 @@ api_url_dict = {
         'CryptoCompare' : ' ' 
         
         }  
-
+'''
 # Loop through dict to pull both name and url into variables, instantiate classes, pull data, parse, and boom!
