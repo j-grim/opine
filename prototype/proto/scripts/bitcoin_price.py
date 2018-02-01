@@ -5,7 +5,6 @@
 
 import json
 import urllib.request
-#https://www.cryptocompare.com/api/#-api-data-pricehistorical-
 
 
 class BtcAPI:
@@ -40,26 +39,25 @@ class Coindesk:
         self.current_utc_time = current_utc_time
         self.current_us_price = current_us_price
         api_id = 'Coindesk'
-        url = 'https://api.coindesk.com/v1/bpi/currentprice.json'                
-
-    def pull_json(self, json_dict):
-
-        current_utc_time = json_dict['time']['updated']
-        current_us_price = json_dict['bpi']['USD']['rate_float']
-            
-        return(current_utc_time)
-        return(current_us_price)
-
-
-
-'''
-
-
-class Coinbase:
+        url = 'https://api.coindesk.com/v1/bpi/currentprice.json'               
+        json_tree = json_dict['time']['updated']
 
 
 class Bitstamp:
 
+    def __init__(self, json_dict):
+
+        self.current_us_price = current_us_price
+        api_id = 'Bitstamp'
+        url = 'https://www.bitstamp.net/api/ticker/'
+        json_tree = json_dict['last']
+
+def fetch_json():
+
+    current_us_price = json_tree #no idea if this will fly... have to try
+    return(current_us_price)
+
+'''
 
 class CoinMarketCap:
 
@@ -73,8 +71,7 @@ api_url_dict = {
         'Coinbase' : 'https://api.coinbase.com/v2/prices/spot?currency=USD', 
         'Bitstamp' : ' ', 
         'CoinMarketCap' : ' ' , 
-        'CryptoCompare' : ' ' 
+        'CryptoCompare' : 'https://www.cryptocompare.com/api/#-api-data-pricehistorical-'
         
         }  
 '''
-# Loop through dict to pull both name and url into variables, instantiate classes, pull data, parse, and boom!
