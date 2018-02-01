@@ -1,5 +1,6 @@
+#!/usr/bin/python
+
 #This is the API for BTC price request. 
-# Make this OBJ oriented. 
 # Average all the amounts, and push that to the program
 
 import json
@@ -21,23 +22,26 @@ class BtcAPI:
         json_data = readdata.read()
 
         json_dict = json.loads(json_data)
-        print(json_dict)
+        return(json_dict)
 
-url = "https://api.coindesk.com/v1/bpi/currentprice.json"
+'''
+url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
 api_id ="Coindesk"
 
 get_price = BtcAPI(url, api_id)
 get_price.btc_api_call()
-
-
 '''
+
+
 class Coindesk:
             
-    def __init__(self):
+    def __init__(self, json_dict):
 
         self.current_utc_time = current_utc_time
         self.current_us_price = current_us_price
-                
+        api_id = 'Coindesk'
+        url = 'https://api.coindesk.com/v1/bpi/currentprice.json'                
+
     def pull_json(self, json_dict):
 
         current_utc_time = json_dict['time']['updated']
@@ -48,7 +52,7 @@ class Coindesk:
 
 
 
-
+'''
 
 
 class Coinbase:
