@@ -33,45 +33,58 @@ get_price.btc_api_call()
 
 
 class Coindesk:
-            
-    def __init__(self, json_dict):
+    
 
-        self.current_utc_time = current_utc_time
+    api_id = 'Coindesk'
+    url = 'https://api.coindesk.com/v1/bpi/currentprice.json'               
+    json_tree = json_dict['time']['updated'] # Reference this after json data is pulled, to variablize the output and store it.
+
+    def __init__(self):
+    
         self.current_us_price = current_us_price
-        api_id = 'Coindesk'
-        url = 'https://api.coindesk.com/v1/bpi/currentprice.json'               
-        json_tree = json_dict['time']['updated']
+'''    
+coindesk_url = Coindesk()
+coindeskoutput = coindesk_url.url
+print(coindeskoutput)
+'''
 
 
 class Bitstamp:
 
+    api_id = 'Bitstamp'
+    url = 'https://www.bitstamp.net/api/ticker/'
+    json_tree = json_dict['last']
+
+
     def __init__(self, json_dict):
 
         self.current_us_price = current_us_price
-        api_id = 'Bitstamp'
-        url = 'https://www.bitstamp.net/api/ticker/'
-        json_tree = json_dict['last']
+
+
+class CoinMarketCap:
+    
+    api_id = 'CoinMarketCap'
+    url = ' '
+    json_tree = ' ' #add this when you know what the tree looks like
+
+    def __init__(self):
+
+        self.current_us_price = current_us_price
+
+
+class CryptoCompare:
+
+    api_id = 'CryptoCompare'
+    url = ' '
+    json_tree = ' ' #add this when you know what the tree looks like
+
+    def __init__(self):
+
+        self.current_us_price = current_us_price
 
 def fetch_json():
 
     current_us_price = json_tree #no idea if this will fly... have to try
     return(current_us_price)
 
-'''
 
-class CoinMarketCap:
-
-
-class CryptoCompare:
-
-
-api_url_dict = { 
-
-        'Coindesk' : 'https://api.coindesk.com/v1/bpi/currentprice.json' , 
-        'Coinbase' : 'https://api.coinbase.com/v2/prices/spot?currency=USD', 
-        'Bitstamp' : ' ', 
-        'CoinMarketCap' : ' ' , 
-        'CryptoCompare' : 'https://www.cryptocompare.com/api/#-api-data-pricehistorical-'
-        
-        }  
-'''
