@@ -9,9 +9,10 @@ import urllib.request
 
 class BtcAPI:
 
-    def __init__(self, url, api_id):
+    def __init__(self, url, api_id, json_tree):
         self.url = url
         self.api_id = api_id
+        self.json_tree = json.tree
 
     def btc_api_call(self):
 
@@ -32,6 +33,38 @@ get_price.btc_api_call()
 '''
 
 
+class Price:
+    
+    def __init__(self, api_id, url, json_tree)
+        
+        self.api_id = api_id
+        self.url = url
+        self.json_tree = json_tree
+    
+    def pass_for_request(self):
+
+        get_price = BtcAPI(url, api_id, json_tree)
+        get_price.btc_api_call()
+
+def Coindesk():
+    coindesk = Price(api_id ="coindesk", url = "https://api.coindesk.com/v1/bpi/currentprice.json", json_tree = "['time']['updated']")
+    coindesk.pass_for_request()
+
+'''
+def Bitstamp():
+    bitstamp = Price(api_id="bitstamp", url = "https://www.bitstamp.net/api/ticker/", json_tree ="['last']")
+
+
+
+def CoinMarketCap:
+
+def CryptoCompare:
+'''
+
+
+
+'''        
+
 class Coindesk:
     
 
@@ -42,23 +75,21 @@ class Coindesk:
     def __init__(self):
     
         self.current_us_price = current_us_price
-'''    
+    
 coindesk_url = Coindesk()
 coindeskoutput = coindesk_url.url
 print(coindeskoutput)
-'''
+
 
 
 class Bitstamp:
 
-    api_id = 'Bitstamp'
-    url = 'https://www.bitstamp.net/api/ticker/'
     json_tree = json_dict['last']
 
 
     def __init__(self, json_dict):
 
-        self.current_us_price = current_us_price
+#        self.current_us_price = current_us_price
 
 
 class CoinMarketCap:
@@ -82,9 +113,4 @@ class CryptoCompare:
 
         self.current_us_price = current_us_price
 
-def fetch_json():
-
-    current_us_price = json_tree #no idea if this will fly... have to try
-    return(current_us_price)
-
-
+'''
