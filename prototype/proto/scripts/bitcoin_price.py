@@ -22,7 +22,7 @@ class BtcAPI:
         json_data = readdata.read()
 
         json_dict = json.loads(json_data)
-        return(json_dict)
+        print(json_dict[json_tree]) #syntax here might be bad
 
 '''
 url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
