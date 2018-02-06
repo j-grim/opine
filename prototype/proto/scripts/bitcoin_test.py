@@ -16,16 +16,14 @@ class BtcAPI:
 
     def btc_api_call(self):
 
-        #GET request
         hdr = { 'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)' }
         req = urllib.request.Request(self.url, headers=hdr)
         readdata = urllib.request.urlopen(req)
         json_data = readdata.read()
-        
-        #parse results
+        print(self.json_key)
         json_dict = json.loads(json_data)
         results = parse_jsonpath(self.json_key).find(json_dict)
-        print(results[0].value) 
+        print(results)
 
 
 class Price:
@@ -37,16 +35,14 @@ class Price:
         self.url = url
         self.json_key = json_key
     
-    #assemble and pass to class method
     def pass_for_request(self):
 
         get_price = BtcAPI(self.url, self.api_id, self.json_key)
-        get_price.btc_api_call() 
+        get_price.btc_api_call()
         
-#API call data (pythonic improvement: place in .ini, via configparser)        
-
+        
 def Coindesk():
-    coindesk = Price("coindesk","https://api.coindesk.com/v1/bpi/currentprice.json","bpi.USD.rate_float") #(api_id, url, json_tree)
+    coindesk = Price("coindesk","https://api.coindesk.com/v1/bpi/currentprice.json","bpi.USD.rate_float")
     coindesk.pass_for_request()
 
 def Bitstamp():
