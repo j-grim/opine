@@ -52,9 +52,9 @@ def Coindesk():
 def Bitstamp():
     bitstamp = Price("bitstamp","https://www.bitstamp.net/api/ticker/", "last")
 
-
-
-#def CoinMarketCap:
+def CoinMarketCap():
+    coin_market_cap = BtcAPI("coinmarketcap", "https://api.coinmarketcap.com/v1/ticker/", "[0].price_usd")
+    coin_market_cap.pass_for_request()
 
 #def CryptoCompare:
 
